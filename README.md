@@ -24,7 +24,7 @@ O projeto tem como objetivo desenvolver um sistema de dados e gerenciamento volt
 
 - Linguagem de Programação: 
 - Banco de Dados: 
-- Frameworks/Libraries: [Listar quaisquer frameworks ou bibliotecas utilizadas no desenvolvimento
+- Frameworks/Libraries:
 
 ## Instalação e Uso
 
