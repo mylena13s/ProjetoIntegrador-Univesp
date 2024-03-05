@@ -8,10 +8,8 @@ Este é o repositório do projeto integrador da disciplina da faculdade UNIVESP.
 - Jonathan Oliveira de Morais 
 - Jose Bruno da Silva Bocz 
 - Mylena Santos da Silva 
-- Alexandre de Abreu 
 - Lucas dos Anjos Silva Cruz 
 - Alef Rezzo dos Reis
-- Alan Pires de Matos Soares 
 
 ## Descrição do Projeto
 
