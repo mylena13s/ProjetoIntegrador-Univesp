@@ -23,7 +23,7 @@ O projeto tem como objetivo desenvolver um sistema de dados e gerenciamento volt
 ## Tecnologias Utilizadas
 
 - Linguagem de Programação: 
-- Banco de Dados: 
+- Banco de Dados: FireBase
 - Frameworks/Libraries:
 
 ## Instalação e Uso
