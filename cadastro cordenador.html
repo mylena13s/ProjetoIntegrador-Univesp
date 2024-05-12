@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+ 
+<html>
+ <head>
+ <title> Cadastro </title>
+ <meta name="description" content="Cadastro idosos Familiares e/ou colaboradores">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+ </head>
+
+ <body>
+  <h1> Gestão lar de Idosos </h1> 
+  <h2> Preencha o formulário abaixo, Cordenação</h2><br />
+
+<form action="Script_do_Formulario.py" method="post">
+
+<!-- DADOS PESSOAIS CORDENAÇÃO-->
+<fieldset>
+ <legend>Dados Pessoais do Cordenador</legend>
+ <table cellspacing="10">
+  <tr>
+    <td>
+      <label for="id_cordenador">Id Cordenador: </label>
+     </td>
+     <td align="left">
+      <input type="text" name="id_cordenador">
+     </tr>
+   <td>
+    <label for="nome cordenador">Nome Cordenador: </label>
+   </td>
+   <td align="left">
+    <input type="text" name="nome cordenador">
+    </td>
+     <tr>
+   <td>
+    <label>CPF:</label>
+   </td>
+   <td align="left">
+    <input type="text" name="cpf" size="9" maxlength="9"> - <input type="text" name="cpf2" size="2" maxlength="2">
+  </tr>
+  <tr>
+    <td>
+      <label for="cargo">Cargo: </label>
+     </td>
+     <td align="left">
+      <input type="text" name="cargo">
+     </tr>
+     <tr>
+        <td>
+         <label>Telefone:</label>
+        </td>
+        <td align="left">
+         <input type="text" name="DD" size="2" maxlength="2">  <input type="text" name="Telefone" size="9" maxlength="9">
+       </tr>
+ </table>
+</fieldset>
+
+<br />
+<input type="submit">
+<input type="reset" value="Limpar">
+</form>
+
+ </body>
+</html>

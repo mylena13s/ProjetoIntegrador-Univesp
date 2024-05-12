@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+ 
+<html>
+ <head>
+ <title> Cadastro </title>
+ <meta name="description" content="Cadastro idosos Familiares e/ou colaboradores">
+ <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+ </head>
+
+ <body>
+  <h1> Gestão lar de Idosos </h1> 
+  <h2> Acesso usuários</h2><br />
+
+<form action="Script_do_Formulario.py" method="post">
+
+<fieldset>
+    <legend>Dados de login</legend>
+    <table cellspacing="10">
+     <tr>
+       <td>
+         <label>CPF:</label>
+        </td>
+        <td align="left">
+         <input type="text" name="cpf" size="9" maxlength="9"> - <input type="text" name="cpf2" size="2" maxlength="2">
+        </td>
+     </tr>
+     <tr>
+        <td>
+         <label for="pass">Senha: </label>
+        </td>
+        <td align="left">
+         <input type="password" name="pass">
+        </td>
+       </tr>
+
+    
+     <td>
+        <label for="tipo">Tipo de usuário: </label>
+       </td>
+       <td align="left">
+        <input type="text" name="tipo">
+       
+       </td>
+    </tr>
+
+    </table>
+
+    <br>
+</fieldset>
+<input type="submit">
+<input type="reset" value="Limpar">
+</form>
+
+ </body>
+</html>
