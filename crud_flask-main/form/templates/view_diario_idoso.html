@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!doctype html>
+    <html lang="en" data-bs-theme="auto">
+      <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Acolhimento Lar de Idosos</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link href="{{ url_for('static', filename='sign-in.css') }}" rel="stylesheet">
+      </head>
+      <header>
+        <nav class="navbar navbar-expand-lg bg-light h5 ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="{{url_for('painel')}}">Painel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('update_coordinator') }}">Minhas Informações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('idoso_registrar') }}">Registrar Idoso</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('logout') }}">Sair</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body class=" py-4 bg-body-tertiary">
+      <div class="container pt-3">
+          {% with messages=get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                  {% for category,message in messages %}
+                      <div class="alert alert-{{category}}">{{message}}</div>      
+                  {% endfor %}
+              {% endif %}
+          {% endwith %}
+          {% block body %}
+          <h4 class='text-left mb-2'>Visualizar Informações diário do Idosos(a) <mark>{{ idoso['nome_idoso'] }}</mark></h4>
+          {% if daily_info %}
+          <input class="form-control mr-sm-2 mb-2" type="search" placeholder="Pesquisar" aria-label="Search" id="searchInput">
+          <div class="table-responsive-sm">
+          <table class="table table-striped table-bordered table-sm table align-middle" id="idosoTable">
+            <thead class="table-dark align-middle">
+            <tr>
+                <th>Data do registro</th>
+                <th>Cuidador que registrou o diário</th>
+                <th>Almoçou</th>
+                <th>Atividade Complementar</th>
+                <th>Atividade Física</th>
+                <th>Banho</th>
+                <th>Café da Manhã</th>
+                <th>Disposição</th>
+                <th>Fruta</th>
+                <th>Lanche da Tarde</th>
+                <th>Medicação</th>
+                <th>Sono</th>
+                <th>Suco/Vitamina</th>
+                <th scope="col">Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for info in daily_info %}
+                <tr>
+                    <td>{{ info.data_checklist }}</td>
+                    <td>{{ info.id_cuidador }}</td>
+                    <td>{{ info.almoco }}</td>
+                    <td>{{ info.at_complementar }}</td>
+                    <td>{{ info.at_fisica }}</td>
+                    <td>{{ info.banho }}</td>
+                    <td>{{ info.cafe_da_manha }}</td>
+                    <td>{{ info.disposicao }}</td>
+                    <td>{{ info.fruta }}</td>
+                    <td>{{ info.lanche_tarde }}</td>
+                    <td>{{ info.medicacao }}</td>
+                    <td>{{ info.sono }}</td>
+                    <td>{{ info.suco_vitamina }}</td>
+                    <td><a href="{{ url_for('delete_diario_idoso', id=idoso['id_idoso'], data_checklist=info['data_checklist']) }}" class="btn btn-danger btn-sm" onclick="return confirm ('Tem certeza que deseja deletar o registro diário do idoso(a)?')">Deletar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+  </div>
+{% else %}
+    <p>Nenhuma informação diária encontrada para o idoso.</p>
+{% endif %}
+          {% endblock %}
+      <script>
+        document.getElementById('searchInput').addEventListener('keyup', function() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("searchInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("idosoTable");
+          tr = table.getElementsByTagName("tr");
+        
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
+        });
+        </script>
+        <a href="{{ url_for('register_daily_info', id=idoso['id_idoso']) }}" class="btn btn-secondary ">Registrar nova informação diária</a>
+        <a href="{{ url_for('painel') }}" class="btn btn-primary">Voltar ao painel</a>
+    </div>
+  </body>
+</html>
