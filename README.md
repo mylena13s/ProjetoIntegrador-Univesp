@@ -1,4 +1,4 @@
-# Projeto Integrador - Sistema de Dados/Gerenciador para Casas de Acolhimento Social
+# Projeto Integrador - Sistema de Dados/Gerenciador para Casas de Acolhimento Social 🏠
 
 Este é o repositório do projeto integrador da disciplina da faculdade UNIVESP. O tema abordado é "Desenvolvimento de um software com framework web que utilize noções de banco de dados, praticando controle de versão".
 
@@ -22,13 +22,27 @@ O projeto tem como objetivo desenvolver um sistema de dados e gerenciamento volt
 
 ## Tecnologias Utilizadas
 
-- Linguagem de Programação: 
-- Banco de Dados: FireBase
-- Frameworks/Libraries:
+- Linguagem de Programação: Python, HTML, CSS.
+- Banco de Dados: Firebase.
+- Frameworks/Libraries: Flask.
 
 ## Instalação e Uso
 
+Para utilizar este projeto, siga as instruções abaixo:
+
+1. Faça o download do projeto zipado.
+2. Descompacte o arquivo baixado.
+3. Abra o projeto no Visual Studio Code ou qualquer IDE de sua preferência.
+4. Certifique-se de ter o Python instalado em seu computador.
+5. Antes de executar o projeto, certifique-se de ter uma conexão válida com o banco de dados Firebase.
+6. Abra o arquivo de configuração do Firebase e insira as credenciais necessárias para a conexão com o banco de dados.
+7. Execute o projeto utilizando o comando `python app.py`.
+8. Acesse a aplicação através do navegador web.
+
+Obs: Importante instalar em seu computador o Python, Flask e importar demais bibliotecas, caso necessário.
+
+
 ## Contribuição
 
-Este projeto está aberto para contribuições da comunidade. Sinta-se à vontade para enviar sugestões, correções ou novas funcionalidades através de pull requests.
+Este projeto está aberto para contribuições da comunidade. Sinta-se à vontade para enviar sugestões, correções ou novas funcionalidades através de pull requests 🚀.
 
