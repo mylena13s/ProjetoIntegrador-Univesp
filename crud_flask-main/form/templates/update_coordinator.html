@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <!doctype html>
+    <html lang="en" data-bs-theme="auto">
+      <head>
+    
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Acolhimento Lar de Idosos</title>
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link href="{{ url_for('static', filename='sign-in.css') }}" rel="stylesheet">
+      </head>
+      <header>
+        <nav class="navbar navbar-expand-lg bg-light h5 ">
+            <div class="container-fluid">
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" aria-current="page" href="{{url_for('painel')}}">Painel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('update_coordinator') }}">Minhas Informações</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('idoso_registrar') }}">Registrar Idoso</a> 
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="{{ url_for('logout') }}">Sair</a> 
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <body class=".d-inline-flex py-4 bg-body-tertiary">
+
+        <div class="container pt-3">
+            {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category,message in messages %}
+                        <div class="alert alert-{{category}}">{{message}}</div>      
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            {% block body %}
+    
+            {% endblock %}
+        </div>
+    
+
+        <main class="form-signin w-100 m-auto">
+            <div class="container mt-3">
+    <h4 class='text-left mb-2'>Alterar Informações do Coordenador</h4>
+    <form action="{{ url_for('update_coordinator') }}" method="post">
+        <div class="form-group">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="{{ user_info['nome'] }}">
+        </div>
+        <div class="form-group">
+            <label for="cpf_cordenador">CPF:</label>
+            <input type="text" class="form-control" id="cpf_cordenador" name="cpf_cordenador" value="{{ user_info['cpf_cordenador'] }}">
+        </div>
+        <div class="form-group">
+            <label for="cargo">Cargo:</label>
+            <input type="text" class="form-control" id="cargo" name="cargo" value="{{ user_info['cargo'] }}">
+        </div>
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" value="{{ user_info['telefone'] }}">
+        </div>
+        <button type="submit" class="mt-2 btn btn-primary">Alterar</button>
+        <a href="{{ url_for('painel') }}" class="btn btn-secondary mt-2">Voltar ao painel</a>
+        <a href="{{ url_for('delete_coordinator', id=user_info['id']) }}" class="btn btn-danger mt-2" onclick="return confirmDelete()">Excluir</a>
+    </form>
+    <script>
+    function confirmDelete() {
+        return confirm("Tem certeza de que deseja excluir este coordenador?");
+    }
+    </script>
+    </div>
+    </main>
+</body>
+</html>
